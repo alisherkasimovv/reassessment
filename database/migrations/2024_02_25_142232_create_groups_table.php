@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->unsignedBigInteger('faculty_id');
+            $table->string('language')->default('UZB');
+            $table->integer('grade');
             $table->timestamps();
+
+            $table->foreign('faculty_id')->references('id')->on('faculties');
         });
     }
 

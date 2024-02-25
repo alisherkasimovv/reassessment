@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Group;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,11 @@ class StudentFactory extends Factory
      */
     public function definition(): array
     {
+        $type = ['CONTRACT', 'GRAND'];
         return [
-            //
+            'full_name' => $this->faker->name(),
+            'group_id' => Group::factory(),
+            'study_type' => $type[rand(0, 1)]
         ];
     }
 }

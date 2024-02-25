@@ -16,8 +16,10 @@ class LecturerFactory extends Factory
      */
     public function definition(): array
     {
+        $degrees = ['MSc', 'PHd', 'BSc', 'Professor'];
         return [
-            //
+            'full_name' => $this->faker->name(),
+            'degree' => $degrees[rand(0, 2)]
         ];
     }
 }

@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->string('full_name');
+            $table->unsignedBigInteger('group_id');
+            $table->string('study_type')->default('CONTRACT');
             $table->timestamps();
+
+            $table->foreign('group_id')->references('id')->on('groups');
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Lecturer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,10 @@ class SubjectFactory extends Factory
      */
     public function definition(): array
     {
+        $subjects = ['Anatomy', 'Physiology', 'Biochemistry', 'Pharmacology', 'Management'];
         return [
-            //
+            'name' => $subjects[rand(0, 4)],
+            'lecturer_id' => Lecturer::factory()
         ];
     }
 }
