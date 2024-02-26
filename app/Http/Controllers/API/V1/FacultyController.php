@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFacultyRequest;
 use App\Http\Requests\UpdateFacultyRequest;
+use App\Http\Resources\V1\FacultyCollection;
+use App\Http\Resources\V1\FacultyResource;
 use App\Models\Faculty;
 
 class FacultyController extends Controller
@@ -14,7 +16,7 @@ class FacultyController extends Controller
      */
     public function index()
     {
-        return Faculty::all();
+        return new FacultyCollection(Faculty::all());
     }
 
     /**
@@ -38,7 +40,7 @@ class FacultyController extends Controller
      */
     public function show(Faculty $faculty)
     {
-        return $faculty;
+        return new FacultyResource($faculty);
     }
 
     /**

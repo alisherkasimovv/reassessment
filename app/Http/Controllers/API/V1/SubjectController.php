@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSubjectRequest;
 use App\Http\Requests\UpdateSubjectRequest;
+use App\Http\Resources\V1\SubjectCollection;
+use App\Http\Resources\V1\SubjectResource;
 use App\Models\Subject;
 
 class SubjectController extends Controller
@@ -14,7 +16,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        return Subject::all();
+        return new SubjectCollection(Subject::all());
     }
 
     /**
@@ -38,7 +40,7 @@ class SubjectController extends Controller
      */
     public function show(Subject $subject)
     {
-        return $subject;
+        return new SubjectResource($subject);
     }
 
     /**

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
+use App\Http\Resources\V1\StudentCollection;
+use App\Http\Resources\V1\StudentResource;
 use App\Models\Student;
 
 class StudentController extends Controller
@@ -14,7 +16,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return Student::all();
+        return new StudentCollection(Student::all());
     }
 
     /**
@@ -38,7 +40,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        return $student;
+        return new StudentResource($student);
     }
 
     /**

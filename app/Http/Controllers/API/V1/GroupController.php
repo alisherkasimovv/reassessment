@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreGroupRequest;
 use App\Http\Requests\UpdateGroupRequest;
+use App\Http\Resources\V1\GroupCollection;
+use App\Http\Resources\V1\GroupResource;
 use App\Models\Group;
 
 class GroupController extends Controller
@@ -14,7 +16,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        return Group::all();
+        return new GroupCollection(Group::all());
     }
 
     /**
@@ -38,7 +40,7 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        return $group;
+        return new GroupResource($group);
     }
 
     /**

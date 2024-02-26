@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLecturerRequest;
 use App\Http\Requests\UpdateLecturerRequest;
+use App\Http\Resources\V1\LecturerCollection;
+use App\Http\Resources\V1\LecturerResource;
 use App\Models\Lecturer;
 
 class LecturerController extends Controller
@@ -14,7 +16,7 @@ class LecturerController extends Controller
      */
     public function index()
     {
-        return Lecturer::all();
+        return new LecturerCollection(Lecturer::all());
     }
 
     /**
@@ -38,7 +40,7 @@ class LecturerController extends Controller
      */
     public function show(Lecturer $lecturer)
     {
-        return $lecturer;
+        return new LecturerResource($lecturer);
     }
 
     /**
