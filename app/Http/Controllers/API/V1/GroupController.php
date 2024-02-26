@@ -8,15 +8,20 @@ use App\Http\Requests\UpdateGroupRequest;
 use App\Http\Resources\V1\GroupCollection;
 use App\Http\Resources\V1\GroupResource;
 use App\Models\Group;
+use App\Services\V1\ObjectQuery;
+use Illuminate\Http\Request;
 
 class GroupController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return new GroupCollection(Group::all());
+        $obj = new ObjectQuery();
+        if (count($request->all()) == 0)
+            return new GroupCollection(Group::all());
+        return new GroupCollection(Group::where($obj->toArray($request))->get());
     }
 
     /**

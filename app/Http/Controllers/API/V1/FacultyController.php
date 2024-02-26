@@ -7,16 +7,21 @@ use App\Http\Requests\StoreFacultyRequest;
 use App\Http\Requests\UpdateFacultyRequest;
 use App\Http\Resources\V1\FacultyCollection;
 use App\Http\Resources\V1\FacultyResource;
+use App\Services\V1\ObjectQuery;
 use App\Models\Faculty;
+use Illuminate\Http\Request;
 
 class FacultyController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return new FacultyCollection(Faculty::all());
+        $obj = new ObjectQuery();
+        if (count($request->all()) == 0)
+            return new FacultyCollection(Faculty::all());
+        return new FacultyCollection((Faculty::where($obj->toArray($request))->get()));
     }
 
     /**

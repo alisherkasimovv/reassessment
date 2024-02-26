@@ -7,6 +7,8 @@ use App\Http\Requests\StoreSubjectRequest;
 use App\Http\Requests\UpdateSubjectRequest;
 use App\Http\Resources\V1\SubjectCollection;
 use App\Http\Resources\V1\SubjectResource;
+use App\Services\V1\ObjectQuery;
+use Illuminate\Http\Request;
 use App\Models\Subject;
 
 class SubjectController extends Controller
@@ -14,9 +16,12 @@ class SubjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return new SubjectCollection(Subject::all());
+        $obj = new ObjectQuery();
+        if (count($request->all()) == 0)
+            return new SubjectCollection(Subject::all());
+        return new SubjectCollection(Subject::where($obj->toArray($request))->get());
     }
 
     /**

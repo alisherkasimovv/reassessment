@@ -7,16 +7,21 @@ use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Http\Resources\V1\StudentCollection;
 use App\Http\Resources\V1\StudentResource;
+use App\Services\V1\ObjectQuery;
 use App\Models\Student;
+use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return new StudentCollection(Student::all());
+        $obj = new ObjectQuery();
+        if (count($request->all()) == 0)
+            return new StudentCollection(Student::all());
+        return new StudentCollection(Student::where($obj->toArray($request))->get());
     }
 
     /**

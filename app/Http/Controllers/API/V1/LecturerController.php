@@ -7,16 +7,21 @@ use App\Http\Requests\StoreLecturerRequest;
 use App\Http\Requests\UpdateLecturerRequest;
 use App\Http\Resources\V1\LecturerCollection;
 use App\Http\Resources\V1\LecturerResource;
+use App\Services\V1\ObjectQuery;
 use App\Models\Lecturer;
+use Illuminate\Http\Request;
 
 class LecturerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return new LecturerCollection(Lecturer::all());
+        $obj = new ObjectQuery();
+        if (count($request->all()) == 0)
+            return new LecturerCollection(Lecturer::all());
+        return new LecturerCollection(Lecturer::where($obj->toArray($request))->get());
     }
 
     /**
