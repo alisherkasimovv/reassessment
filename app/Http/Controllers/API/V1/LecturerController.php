@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\V1;
 
-use App\Http\Requests\StoreGroupRequest;
-use App\Http\Requests\UpdateGroupRequest;
-use App\Models\Group;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreLecturerRequest;
+use App\Http\Requests\UpdateLecturerRequest;
+use App\Models\Lecturer;
 
-class GroupController extends Controller
+class LecturerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return Lecturer::all();
     }
 
     /**
@@ -27,7 +28,7 @@ class GroupController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreGroupRequest $request)
+    public function store(StoreLecturerRequest $request)
     {
         //
     }
@@ -35,15 +36,15 @@ class GroupController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Group $group)
+    public function show(Lecturer $lecturer)
     {
-        //
+        return $lecturer;
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Group $group)
+    public function edit(Lecturer $lecturer)
     {
         //
     }
@@ -51,7 +52,7 @@ class GroupController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateGroupRequest $request, Group $group)
+    public function update(UpdateLecturerRequest $request, Lecturer $lecturer)
     {
         //
     }
@@ -59,7 +60,7 @@ class GroupController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Group $group)
+    public function destroy(Lecturer $lecturer)
     {
         //
     }

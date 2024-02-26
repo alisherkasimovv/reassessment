@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\V1;
 
-use App\Http\Requests\StoreLecturerRequest;
-use App\Http\Requests\UpdateLecturerRequest;
-use App\Models\Lecturer;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSubjectRequest;
+use App\Http\Requests\UpdateSubjectRequest;
+use App\Models\Subject;
 
-class LecturerController extends Controller
+class SubjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return Subject::all();
     }
 
     /**
@@ -27,7 +28,7 @@ class LecturerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreLecturerRequest $request)
+    public function store(StoreSubjectRequest $request)
     {
         //
     }
@@ -35,15 +36,15 @@ class LecturerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Lecturer $lecturer)
+    public function show(Subject $subject)
     {
-        //
+        return $subject;
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Lecturer $lecturer)
+    public function edit(Subject $subject)
     {
         //
     }
@@ -51,7 +52,7 @@ class LecturerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateLecturerRequest $request, Lecturer $lecturer)
+    public function update(UpdateSubjectRequest $request, Subject $subject)
     {
         //
     }
@@ -59,7 +60,7 @@ class LecturerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Lecturer $lecturer)
+    public function destroy(Subject $subject)
     {
         //
     }

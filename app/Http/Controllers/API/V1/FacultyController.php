@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\V1;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFacultyRequest;
 use App\Http\Requests\UpdateFacultyRequest;
 use App\Models\Faculty;
@@ -13,7 +14,7 @@ class FacultyController extends Controller
      */
     public function index()
     {
-        //
+        return Faculty::all();
     }
 
     /**
@@ -37,7 +38,7 @@ class FacultyController extends Controller
      */
     public function show(Faculty $faculty)
     {
-        //
+        return $faculty;
     }
 
     /**
