@@ -11,7 +11,7 @@ class StoreAssessmentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,31 @@ class StoreAssessmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'lecturerId' => ['required'],
+            'facultyId' => ['required'],
+            'groupId' => ['required'],
+            'studentId' => ['required'],
+            'subjectId' => ['required'],
+            'lessonType' => ['required'],
+            'theme' => ['required'],
+            'lessonDate' => ['required'],
+            'lessonScore' => ['required'],
+            'isPassed' => ['required'],
         ];
+    }
+
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'lecturer_id' => $this->lecturerId,
+            'faculty_id' => $this->facultyId,
+            'group_id' => $this->groupId,
+            'student_id' => $this->studentId,
+            'subject_id' => $this->subjectId,
+            'lesson_type' => $this->lessonType,
+            'lesson_date' => $this->lessonDate,
+            'lesson_score' => $this->lessonScore,
+            'is_passed' => $this->isPassed,
+        ]);
     }
 }

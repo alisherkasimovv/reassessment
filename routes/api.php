@@ -24,4 +24,5 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\API\V1'], f
     Route::apiResource('groups', \App\Http\Controllers\API\V1\GroupController::class);
     Route::apiResource('faculties', \App\Http\Controllers\API\V1\FacultyController::class);
     Route::apiResource('students', \App\Http\Controllers\API\V1\StudentController::class);
+    Route::apiResource('assessments', \App\Http\Controllers\API\V1\AssessmentController::class);
 });

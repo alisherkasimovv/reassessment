@@ -1,9 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\V1;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAssessmentRequest;
 use App\Http\Requests\UpdateAssessmentRequest;
+use App\Http\Resources\V1\AssessmentCollection;
+use App\Http\Resources\V1\AssessmentResource;
+use App\Services\V1\ObjectQuery;
+use Illuminate\Http\Request;
 use App\Models\Assessment;
 
 class AssessmentController extends Controller
@@ -11,9 +16,12 @@ class AssessmentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $obj = new ObjectQuery();
+        if (count($request->all()) == 0)
+            return new AssessmentCollection(Assessment::all());
+        return new AssessmentCollection(Assessment::where($obj->toArray($request))->get());
     }
 
     /**
@@ -29,7 +37,7 @@ class AssessmentController extends Controller
      */
     public function store(StoreAssessmentRequest $request)
     {
-        //
+        return new AssessmentResource(Assessment::create($request->all()));
     }
 
     /**
@@ -37,7 +45,7 @@ class AssessmentController extends Controller
      */
     public function show(Assessment $assessment)
     {
-        //
+        return new AssessmentResource($assessment);
     }
 
     /**

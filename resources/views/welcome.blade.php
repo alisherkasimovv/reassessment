@@ -67,7 +67,7 @@
                 <div class="row" style="margin-top: 20px;">
                     <div class="col">
                         <label for="lessonType" class="form-label" style="margin-bottom: 0;">Dars turi:</label>
-                        <select id="lessonType" class="form-select" name="teacher" required="">
+                        <select id="lessonType" class="form-select" name="lessonType" required="">
                             <option value="NONE" selected="">Tanlang...</option>
                             <option value="MARUZA">Maruza</option>
                             <option value="AMALIYOT">Amaliyot</option>
