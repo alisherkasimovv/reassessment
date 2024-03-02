@@ -50,18 +50,21 @@
                 </div>
                 <div class="row" style="margin-top: 20px;">
                     <div class="col">
-                        <label for="student" class="form-label" style="margin-bottom: 0;">Talaba:</label>
-                        <select id="student" class="form-select" name="student" required="">
+                        <label for="subject" class="form-label" style="margin-bottom: 0;">Fan:</label>
+                        <select id="subject" class="form-select" name="subject" required="">
                             <option value="0" selected="">Tanlang...</option>
                         </select>
                     </div>
                 </div>
                 <div class="row" style="margin-top: 20px;">
                     <div class="col">
-                        <label for="subject" class="form-label" style="margin-bottom: 0;">Fan:</label>
-                        <select id="subject" class="form-select" name="subject" required="">
+                        <label for="student" class="form-label" style="margin-bottom: 0;">Talaba:</label>
+                        <select id="student" class="form-select" name="student" required="">
                             <option value="0" selected="">Tanlang...</option>
                         </select>
+                    </div>
+                    <div id="previous" class="table-responsive" style="margin-top: 20px;">
+
                     </div>
                 </div>
                 <div class="row" style="margin-top: 20px;">

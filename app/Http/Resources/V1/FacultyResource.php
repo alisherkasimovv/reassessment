@@ -17,7 +17,8 @@ class FacultyResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'facultyCode' => $this->faculty_code
+            'facultyCode' => $this->faculty_code,
+            'groups' => GroupResource::collection($this->whenLoaded('groups'))
         ];
     }
 }

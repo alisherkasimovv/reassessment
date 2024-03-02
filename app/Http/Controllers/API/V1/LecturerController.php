@@ -19,9 +19,13 @@ class LecturerController extends Controller
     public function index(Request $request)
     {
         $obj = new ObjectQuery();
-        if (count($request->all()) == 0)
-            return new LecturerCollection(Lecturer::all());
-        return new LecturerCollection(Lecturer::where($obj->toArray($request))->get());
+        $includeChildren = $request->query('withChildren');
+
+        $lecturers = Lecturer::where($obj->transform($request))->get();
+        if ($includeChildren)
+            $lecturers = Lecturer::with('assessments')->where($obj->transform($request))->get();
+
+        return new LecturerCollection($lecturers);
     }
 
     /**

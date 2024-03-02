@@ -18,7 +18,8 @@ class StudentResource extends JsonResource
             'id' => $this->id,
             'fullName' => $this->full_name,
             'groupId' => $this->group_id,
-            'studyType' => $this->study_type
+            'studyType' => $this->study_type,
+            'assessments' => AssessmentResource::collection($this->whenLoaded('assessments'))
         ];
     }
 }

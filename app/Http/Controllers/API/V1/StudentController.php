@@ -16,12 +16,16 @@ class StudentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(Request $request): StudentCollection
     {
         $obj = new ObjectQuery();
-        if (count($request->all()) == 0)
-            return new StudentCollection(Student::all());
-        return new StudentCollection(Student::where($obj->toArray($request))->get());
+        $includeChildren = $request->query('withChildren');
+
+        $students = Student::where($obj->transform($request))->get();
+        if ($includeChildren)
+            $students = Student::with('assessments')->where($obj->transform($request))->get();
+
+        return new StudentCollection($students);
     }
 
     /**
@@ -45,6 +49,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
+
         return new StudentResource($student);
     }
 

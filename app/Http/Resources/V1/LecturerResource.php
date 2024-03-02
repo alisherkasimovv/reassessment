@@ -17,7 +17,8 @@ class LecturerResource extends JsonResource
         return [
             'id' => $this->id,
             'fullName' => $this->full_name,
-            'degree' => $this->degree
+            'degree' => $this->degree,
+            'assessments' => AssessmentResource::collection($this->whenLoaded('assessments'))
         ];
     }
 }

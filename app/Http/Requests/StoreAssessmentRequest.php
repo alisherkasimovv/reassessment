@@ -23,8 +23,6 @@ class StoreAssessmentRequest extends FormRequest
     {
         return [
             'lecturerId' => ['required'],
-            'facultyId' => ['required'],
-            'groupId' => ['required'],
             'studentId' => ['required'],
             'subjectId' => ['required'],
             'lessonType' => ['required'],

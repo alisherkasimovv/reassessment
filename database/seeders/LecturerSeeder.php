@@ -16,7 +16,6 @@ class LecturerSeeder extends Seeder
     {
         Lecturer::factory()
             ->count(10)
-            ->has(Subject::factory(1))
             ->create();
     }
 }

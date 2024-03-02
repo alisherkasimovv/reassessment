@@ -27,8 +27,6 @@ class AssessmentFactory extends Factory
 
         return [
         'lecturer_id' => Lecturer::factory(),
-        'faculty_id' => Faculty::factory(),
-        'group_id' => Group::factory(),
         'student_id' => Student::factory(),
         'subject_id' => Subject::factory(),
         'lesson_type' => $lesson_type[rand(0, 1)],

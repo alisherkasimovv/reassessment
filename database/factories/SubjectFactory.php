@@ -20,7 +20,6 @@ class SubjectFactory extends Factory
         $subjects = ['Anatomy', 'Physiology', 'Biochemistry', 'Pharmacology', 'Management'];
         return [
             'name' => $subjects[rand(0, 4)],
-            'lecturer_id' => Lecturer::factory()
         ];
     }
 }

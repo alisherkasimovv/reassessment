@@ -19,9 +19,13 @@ class GroupController extends Controller
     public function index(Request $request)
     {
         $obj = new ObjectQuery();
-        if (count($request->all()) == 0)
-            return new GroupCollection(Group::all());
-        return new GroupCollection(Group::where($obj->toArray($request))->get());
+        $withChildren = $request->query('withChildren');
+
+        $groups = Group::where($obj->transform($request))->get();
+        if ($withChildren)
+            $groups = Group::with('students')->where($obj->transform($request))->get();
+
+        return new GroupCollection($groups);
     }
 
     /**

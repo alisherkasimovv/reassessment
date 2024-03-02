@@ -19,7 +19,8 @@ class GroupResource extends JsonResource
             'name' => $this->name,
             'facultyId' => $this->faculty_id,
             'language' => $this->language,
-            'grade' => $this->grade
+            'grade' => $this->grade,
+            'students' => StudentResource::collection($this->whenLoaded('students'))
         ];
     }
 }

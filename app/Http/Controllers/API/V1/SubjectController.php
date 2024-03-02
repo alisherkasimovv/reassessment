@@ -19,9 +19,13 @@ class SubjectController extends Controller
     public function index(Request $request)
     {
         $obj = new ObjectQuery();
-        if (count($request->all()) == 0)
-            return new SubjectCollection(Subject::all());
-        return new SubjectCollection(Subject::where($obj->toArray($request))->get());
+        $includeChildren = $request->query('withChildren');
+
+        $subjects = Subject::where($obj->transform($request))->get();
+        if ($includeChildren)
+            $subjects = Subject::with('assessments')->where($obj->transform($request))->get();
+
+        return new SubjectCollection($subjects);
     }
 
     /**

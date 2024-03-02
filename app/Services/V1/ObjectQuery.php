@@ -16,14 +16,16 @@ class ObjectQuery
         'lessonDate' => 'lesson_date',
         'lessonScore' => 'lesson_score',
         'isPassed' => 'is_passed',
+        'assessmentDate' => 'assessment_date'
     ];
 
-    public function toArray(Request $request): array
+    public function transform(Request $request): array
     {
         $queryArray = [];
         $query = $request->all();
         foreach ($query as $key => $val)
         {
+            if ($key == 'withChildren') continue;
             $queryArray[] = [$this->columnMap[$key] ?? $key, '=', $val];
         }
 

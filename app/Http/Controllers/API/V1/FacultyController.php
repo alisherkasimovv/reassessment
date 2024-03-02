@@ -19,9 +19,13 @@ class FacultyController extends Controller
     public function index(Request $request)
     {
         $obj = new ObjectQuery();
-        if (count($request->all()) == 0)
-            return new FacultyCollection(Faculty::all());
-        return new FacultyCollection((Faculty::where($obj->toArray($request))->get()));
+        $includeChildren = $request->query('withChildren');
+
+        $faculties = Faculty::where($obj->transform($request))->get();
+        if ($includeChildren)
+            $faculties = Faculty::with('groups')->where($obj->transform($request))->get();
+
+        return new FacultyCollection($faculties);
     }
 
     /**

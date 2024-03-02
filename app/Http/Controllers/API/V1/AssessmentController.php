@@ -21,7 +21,7 @@ class AssessmentController extends Controller
         $obj = new ObjectQuery();
         if (count($request->all()) == 0)
             return new AssessmentCollection(Assessment::all());
-        return new AssessmentCollection(Assessment::where($obj->toArray($request))->get());
+        return new AssessmentCollection(Assessment::where($obj->transform($request))->get());
     }
 
     /**

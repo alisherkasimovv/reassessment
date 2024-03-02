@@ -17,7 +17,7 @@ class SubjectResource extends JsonResource
         return [
             'id' => $this->id,
             'name'=> $this->name,
-            'lecturerId' => $this->lecturer_id
+            'assessments' => AssessmentResource::collection($this->whenLoaded('assessments'))
         ];
     }
 }

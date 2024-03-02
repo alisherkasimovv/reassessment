@@ -17,15 +17,14 @@ class AssessmentResource extends JsonResource
         return [
             'id' => $this->id,
             'lecturerId' => $this->lecturer_id,
-            'facultyId' => $this->faculty_id,
-            'groupId' => $this->group_id,
             'studentId' => $this->student_id,
             'subjectId' => $this->subject_id,
             'lessonType' => $this->lesson_type,
             'theme' => $this->theme,
             'lessonDate' => $this->lesson_date,
             'lessonScore' => $this->lesson_score,
-            'isPassed' => $this->is_passed
+            'isPassed' => $this->is_passed,
+            'assessmentDate' => $this->assessment_date
         ];
     }
 }
