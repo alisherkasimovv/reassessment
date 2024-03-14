@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('lecturer_id');
             $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('subject_id');
+            $table->unsignedBigInteger('inspector_id');
             $table->string('lesson_type');
             $table->string('theme');
             $table->date('lesson_date');

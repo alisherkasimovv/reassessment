@@ -14,6 +14,7 @@ class Assessment extends Model
         'lecturer_id',
         'student_id',
         'subject_id',
+        'inspector_id',
         'lesson_type',
         'theme',
         'lesson_date',

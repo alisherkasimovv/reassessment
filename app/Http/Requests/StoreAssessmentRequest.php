@@ -23,6 +23,7 @@ class StoreAssessmentRequest extends FormRequest
     {
         return [
             'lecturerId' => ['required'],
+            'inspectorId' => ['required'],
             'studentId' => ['required'],
             'subjectId' => ['required'],
             'lessonType' => ['required'],
@@ -37,6 +38,7 @@ class StoreAssessmentRequest extends FormRequest
     {
         $this->merge([
             'lecturer_id' => $this->lecturerId,
+            'inspector_id' => $this->inspectorId,
             'faculty_id' => $this->facultyId,
             'group_id' => $this->groupId,
             'student_id' => $this->studentId,

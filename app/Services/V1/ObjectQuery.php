@@ -8,6 +8,7 @@ class ObjectQuery
 {
     protected array $columnMap = [
         'lecturerId' => 'lecturer_id',
+        'inspectorId' => 'inspector_id',
         'facultyId' => 'faculty_id',
         'groupId' => 'group_id',
         'studentId' => 'student_id',
