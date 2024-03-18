@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('full_name');
             $table->unsignedBigInteger('group_id');
             $table->string('study_type')->default('CONTRACT');
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
 
             $table->foreign('group_id')->references('id')->on('groups');

@@ -35,7 +35,7 @@ class AssessmentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAssessmentRequest $request)
+    public function store(StoreAssessmentRequest $request): AssessmentResource
     {
         return new AssessmentResource(Assessment::create($request->all()));
     }
@@ -43,7 +43,7 @@ class AssessmentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Assessment $assessment)
+    public function show(Assessment $assessment): AssessmentResource
     {
         return new AssessmentResource($assessment);
     }

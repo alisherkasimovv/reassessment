@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\WebIndexController::class, 'index']);
+Route::get('/assess', [\App\Http\Controllers\AssessmentController::class, 'index']);
+Route::get('/lecturers', [\App\Http\Controllers\LecturerController::class, 'index']);
+Route::get('/lecturers/delete/{id}', [\App\Http\Controllers\LecturerController::class, 'delete']);

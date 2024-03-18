@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('faculty_id');
             $table->string('language')->default('UZB');
             $table->integer('grade');
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
 
             $table->foreign('faculty_id')->references('id')->on('faculties');

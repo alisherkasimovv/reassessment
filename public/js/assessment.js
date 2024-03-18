@@ -6,11 +6,11 @@ function cleanSelectsFrom (option) {
             $('#student').empty().append('<option value="0" selected="">Tanlang...</option>');
             $('#previousAssesses').text("");
         case 'lessonType':
-            $('#lessonType').val('NONE');
+            $('#lesson-type').val('NONE');
         case 'theme':
             $('#theme').val('');
         case 'lessonScore':
-            $('#lessonScore').val(0);
+            $('#score').val(0);
             break;
     }
 }
@@ -111,9 +111,9 @@ function clearScreen () {
     $('#subject').val(0);
     $('#group').val(0);
     $('#student').val(0);
-    $('#lessonType').val('NONE');
+    $('#lesson-type').val('NONE');
     $('#theme').val('');
-    $('#lessonScore').val(0);
+    $('#score').val(0);
     $('#previousAssesses').text("");
 }
 
@@ -123,10 +123,10 @@ function trySave (type) {
         inspectorId: $('#inspector').val(),
         subjectId: $('#subject').val(),
         studentId: $('#student').val(),
-        lessonType: $('#lessonType').val(),
-        lessonDate: $('#lessonDate').val(),
+        lessonType: $('#lesson-type').val(),
+        lessonDate: $('#lesson-date').val(),
         theme: $('#theme').val(),
-        lessonScore: type ? $('#lessonScore').val() : 0,
+        lessonScore: type ? $('#score').val() : 0,
         isPassed: type ? 1 : 0
     }
 

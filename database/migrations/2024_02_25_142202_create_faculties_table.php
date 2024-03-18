@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('faculty_code')->nullable();
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

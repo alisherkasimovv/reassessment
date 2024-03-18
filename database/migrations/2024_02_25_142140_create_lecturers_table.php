@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('full_name');
             $table->string('degree')->nullable();
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

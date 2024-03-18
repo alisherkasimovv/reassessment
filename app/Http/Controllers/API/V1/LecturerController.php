@@ -21,7 +21,7 @@ class LecturerController extends Controller
         $obj = new ObjectQuery();
         $includeChildren = $request->query('withChildren');
 
-        $lecturers = Lecturer::where($obj->transform($request))->get();
+        $lecturers = Lecturer::where($obj->transform($request))->paginate();
         if ($includeChildren)
             $lecturers = Lecturer::with('assessments')->where($obj->transform($request))->get();
 

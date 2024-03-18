@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('lesson_score');
             $table->boolean('is_passed')->default(false);
             $table->dateTimeTz('assessment_date')->default(Carbon::now());
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
 
             $table->foreign('lecturer_id')->references('id')->on('lecturers');
