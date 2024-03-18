@@ -21,9 +21,6 @@ class LecturerController extends Controller
     public function delete($id)
     {
         Lecturer::where('id', $id)->update(['is_active' => 0]);
-//        $lecturer = Lecturer::where('id', $id)->first();
-//        $lecturer->is_active = 0;
-//        $lecturer>
         return redirect('/lecturers');
     }
 }

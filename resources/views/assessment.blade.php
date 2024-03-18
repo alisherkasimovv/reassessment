@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h1 class="mt-5" style="color: var(--bs-dark);text-align: center;font-weight: bold;">Qayta topshirish</h1>
+                    <h1 class="mt-5" style="color: var(--bs-dark);text-align: center;font-weight: bold;">{{ $page_title }}</h1>
                 </div>
             </div>
         </div>
