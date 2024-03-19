@@ -41,7 +41,7 @@ class FacultyController extends Controller
      */
     public function store(StoreFacultyRequest $request)
     {
-        //
+        return new FacultyResource(Faculty::create($request->all()));
     }
 
     /**

@@ -10,6 +10,10 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Lecturer extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'full_name',
+        'degree'
+    ];
 
     public function subject(): HasOne
     {

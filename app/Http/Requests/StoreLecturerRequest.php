@@ -11,7 +11,7 @@ class StoreLecturerRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,15 @@ class StoreLecturerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "fullName" => ['required']
         ];
+    }
+
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'full_name' => $this->fullName,
+            'degree' => $this->degree
+        ]);
     }
 }

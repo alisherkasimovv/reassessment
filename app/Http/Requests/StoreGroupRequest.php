@@ -11,7 +11,7 @@ class StoreGroupRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,20 @@ class StoreGroupRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "name" => ['required'],
+            "facultyId" => ['required'],
+            "language" => ['required'],
+            "grade" => ['required']
         ];
+    }
+
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'name' => $this->name,
+            'faculty_id' => $this->facultyId,
+            'language' => $this->language,
+            'grade' => $this->grade
+        ]);
     }
 }

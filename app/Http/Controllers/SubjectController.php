@@ -12,7 +12,7 @@ class SubjectController extends Controller
             'subjects',
             [
                 'page_title' => "Fanlar",
-                'subjects' => Subject::where('is_active', 1)->paginate(5)
+                'subjects' => Subject::where('is_active', 1)->paginate(10)
             ]
         );
     }
@@ -20,6 +20,6 @@ class SubjectController extends Controller
     public function delete($id)
     {
         Subject::where('id', $id)->update(['is_active' => 0]);
-        return redirect('/lecturers');
+        return redirect('/subjects');
     }
 }

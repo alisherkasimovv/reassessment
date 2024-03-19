@@ -41,7 +41,7 @@ class GroupController extends Controller
      */
     public function store(StoreGroupRequest $request)
     {
-        //
+        return new GroupResource(Group::create($request->all()));
     }
 
     /**

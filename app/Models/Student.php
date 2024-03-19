@@ -10,6 +10,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Student extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'full_name',
+        'group_id',
+        'study_type'
+    ];
 
     public function group(): BelongsTo
     {

@@ -41,7 +41,7 @@ class SubjectController extends Controller
      */
     public function store(StoreSubjectRequest $request)
     {
-        //
+        return new SubjectResource(Subject::create($request->all()));
     }
 
     /**

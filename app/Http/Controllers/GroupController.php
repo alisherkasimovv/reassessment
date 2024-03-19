@@ -22,6 +22,6 @@ class GroupController extends Controller
     public function delete($id)
     {
         Group::where('id', $id)->update(['is_active' => 0]);
-        return redirect('/lecturers');
+        return redirect('/groups');
     }
 }

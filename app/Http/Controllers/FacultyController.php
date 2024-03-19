@@ -12,7 +12,7 @@ class FacultyController extends Controller
             'faculties',
             [
                 'page_title' => "Fakultetlar",
-                'faculties' => Faculty::where('is_active', 1)->paginate(5)
+                'faculties' => Faculty::where('is_active', 1)->paginate(10)
             ]
         );
     }

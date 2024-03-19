@@ -55,7 +55,10 @@
                                     </select><label class="form-label" for="lesson-type">Dars turi</label></div>
                             </div>
                             <div id="theme-container" class="mb-3 mt-1">
-                                <div class="form-floating"><input class="form-control" type="text" id="theme" name="theme" placeholder="Dars mavzusini kiriting"><label class="form-label" for="theme">Dars mavzusi:</label></div>
+                                <div class="form-floating">
+                                    <input class="form-control" type="text" id="theme" name="theme" placeholder="Dars mavzusini kiriting">
+                                    <label class="form-label" for="theme">Dars mavzusi:</label>
+                                </div>
                             </div>
                             <div id="lesson-date-container" class="mb-3 mt-1">
                                 <div class="form-floating"><input class="form-control" id="lesson-date" type="date" name="lessonDate"><label class="form-label" for="lesson-date">Dars o'tkazilgan sana:</label></div>

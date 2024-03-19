@@ -7,4 +7,14 @@
 <script src="{{ asset('vendor/jquery/jquery.js') }}"></script>
 @if (request()->is('assess'))
     <script src="{{ asset('js/assessment.js') }}"></script>
+@elseif(request()->is('faculties'))
+    <script src="{{ asset('js/faculties.js') }}"></script>
+@elseif(request()->is('groups'))
+    <script src="{{ asset('js/groups.js') }}"></script>
+@elseif(request()->is('lecturers'))
+    <script src="{{ asset('js/lecturers.js') }}"></script>
+@elseif(request()->is('students'))
+    <script src="{{ asset('js/students.js') }}"></script>
+@elseif(request()->is('subjects'))
+    <script src="{{ asset('js/subjects.js') }}"></script>
 @endif

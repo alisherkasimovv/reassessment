@@ -41,7 +41,7 @@ class LecturerController extends Controller
      */
     public function store(StoreLecturerRequest $request)
     {
-        //
+        return new LecturerResource(Lecturer::create($request->all()));
     }
 
     /**

@@ -13,7 +13,7 @@ class LecturerController extends Controller
             'lecturers',
             [
                 'page_title' => "Ustozlar",
-                'lecturers' => Lecturer::where('is_active', 1)->paginate(5)
+                'lecturers' => Lecturer::where('is_active', 1)->paginate(10)
             ]
         );
     }
