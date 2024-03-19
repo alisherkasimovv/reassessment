@@ -16,7 +16,7 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th style="width: 5%;">ID</th>
+                                <th style="width: 5%;">#</th>
                                 <th style="width: 65%;">Nomi</th>
                                 <th style="width: 20%;">Kod raqami</th>
                                 <th>Amallar</th>

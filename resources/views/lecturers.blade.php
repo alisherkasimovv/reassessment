@@ -16,7 +16,7 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th style="width: 5%;">ID</th>
+                                <th style="width: 5%;">#</th>
                                 <th style="width: 55%;">Ism, familiya</th>
                                 <th style="width: 30%;">Daraja</th>
                                 <th>Amallar</th>

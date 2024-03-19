@@ -21,3 +21,7 @@ Route::get('/subjects', [\App\Http\Controllers\SubjectController::class, 'index'
 Route::get('/subjects/delete/{id}', [\App\Http\Controllers\SubjectController::class, 'delete']);
 Route::get('/faculties', [\App\Http\Controllers\FacultyController::class, 'index']);
 Route::get('/faculties/delete/{id}', [\App\Http\Controllers\FacultyController::class, 'delete']);
+Route::get('/groups', [\App\Http\Controllers\GroupController::class, 'index']);
+Route::get('/groups/delete/{id}', [\App\Http\Controllers\GroupController::class, 'delete']);
+Route::get('/students', [\App\Http\Controllers\StudentController::class, 'index']);
+Route::get('/students/delete/{id}', [\App\Http\Controllers\StudentController::class, 'delete']);
